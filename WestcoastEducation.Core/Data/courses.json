@@ -1,0 +1,18 @@
+[
+  {
+    "CourseNumber": "HK26B",
+    "Title": "Hemkunskap",
+    "LengthInWeeks": 40,
+    "StartDate": "2026-08-25",
+    "EndDate": "2027-06-25",
+    "CourseType": 1
+  },
+  {
+    "CourseNumber": "DG26C",
+    "Title": "Drejning",
+    "LengthInWeeks": 40,
+    "StartDate": "2026-08-26",
+    "EndDate": "2027-04-24",
+    "CourseType": 0
+  }
+]
