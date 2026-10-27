@@ -4,32 +4,17 @@ namespace WestcoastEducation.Core.Models;
 
 public class Course
 {
-    public string CourseNumber { get; set; }
-    public string Title { get; set; }
+    public string CourseNumber { get; set; } = string.Empty;
+    public string Title { get; set; } = string.Empty;
     public int LengthInWeeks { get; set; }
     public DateOnly StartDate { get; set; }
     public DateOnly EndDate { get; set; }
     public CourseType CourseType { get; set; }
     [JsonIgnore] // Bara kursens egna uppgifter ska med
     public Teacher? Teacher { get; set; } // Aggregation (läraren skapas någon annanstans, kursen pekar bara på den) 
-    [JsonIgnore]
-    public List<Student> Students { get; set; }
-    public Course(
-        string courseNumber,
-        string title,
-        int lengthInWeeks,
-        DateOnly startDate,
-        DateOnly endDate,
-        CourseType courseType)
-    {
-        CourseNumber = courseNumber;
-        Title = title;
-        LengthInWeeks = lengthInWeeks;
-        StartDate = startDate;
-        EndDate = endDate;
-        CourseType = courseType;
-        Students = new List<Student>();
-    }
+
+    [JsonIgnore] 
+    public List<Student> Students { get; set; } = new List<Student>();
 
     public void AddStudent(Student student)
     {
@@ -71,11 +56,6 @@ public class Course
         {
             return "Distans";
         }
-    }
-
-    public override string ToString()
-    {
-        return $"Kurs: {Title} ({CourseNumber}), Längd: {LengthInWeeks} veckor, {StartDate:yyyy-MM-dd} - {EndDate:yyyy-MM-dd}, {GetCourseTypeText()}, Lärare: {GetTeacherText()}, {Students.Count} studenter";
     }
 
 }
