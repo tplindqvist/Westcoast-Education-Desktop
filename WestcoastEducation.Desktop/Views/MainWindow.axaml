@@ -15,8 +15,6 @@
         <vm:MainViewModel />
     </Design.DataContext>
 
-    <TextBox Text="{Binding Greeting}"
-             HorizontalAlignment="Center"
-             VerticalAlignment="Center" />
+    <UserControl Grid.Column="1" Padding="20" Content="{Binding CurrentView}" />
 
 </Window>
