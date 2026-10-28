@@ -7,8 +7,8 @@ public class Course
     public string CourseNumber { get; set; } = string.Empty;
     public string Title { get; set; } = string.Empty;
     public int LengthInWeeks { get; set; }
-    public DateOnly StartDate { get; set; }
-    public DateOnly EndDate { get; set; }
+    public DateTime StartDate { get; set; }
+    public DateTime EndDate { get; set; }
     public CourseType CourseType { get; set; }
     [JsonIgnore] // Bara kursens egna uppgifter ska med
     public Teacher? Teacher { get; set; } // Aggregation (läraren skapas någon annanstans, kursen pekar bara på den) 
