@@ -15,6 +15,17 @@
         <vm:MainViewModel />
     </Design.DataContext>
 
-    <UserControl Grid.Column="1" Padding="20" Content="{Binding CurrentView}" />
+    <Grid RowDefinitions="Auto,*">
+        <Menu Grid.Row="0">
+            <MenuItem Header="Arkiv">
+                <MenuItem Header="Hem" Command="{Binding GoToHomeCommand}" />
+            </MenuItem>
+            <MenuItem Header="Kurser">
+                <MenuItem Header="Lista kurser" Command="{Binding GoToCoursesCommand}" />
+            </MenuItem>
+        </Menu>
+        <UserControl Grid.Row="1" Padding="20" Content="{Binding CurrentView}" />
+
+    </Grid>
 
 </Window>
