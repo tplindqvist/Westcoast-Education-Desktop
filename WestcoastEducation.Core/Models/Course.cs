@@ -4,6 +4,9 @@ namespace WestcoastEducation.Core.Models;
 
 public class Course
 {
+    [JsonPropertyName("_id")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    public string? Id { get; set; }
     public string CourseNumber { get; set; } = string.Empty;
     public string Title { get; set; } = string.Empty;
     public int LengthInWeeks { get; set; }

@@ -21,9 +21,9 @@
             <CalendarDatePicker Grid.Row="3" Grid.Column="1" SelectedDate="{Binding StartDate}" />
             <CalendarDatePicker Grid.Row="4" Grid.Column="1" SelectedDate="{Binding EndDate}" />
             <CheckBox Content="Distans" Grid.Row="5" Grid.Column="1" IsChecked="{Binding IsRemote}" />
-            
-            </Grid>
-        
-            <Button Content="Spara" Command="{Binding SaveCommand}" />
+
+        </Grid>
+
+        <Button Content="Spara" Command="{Binding SaveCommand}" />
     </StackPanel>
 </UserControl>
