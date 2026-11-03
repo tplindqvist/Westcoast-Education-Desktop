@@ -1,6 +1,9 @@
 using System;
+using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using WestcoastEducation.Core.Interfaces;
+using WestcoastEducation.Core.Models;
 
 namespace WestcoastEducation.Desktop.ViewModels;
 
@@ -20,5 +23,41 @@ public partial class AddCourseViewModel : ViewModelBase
     public AddCourseViewModel(ICourseService courseService)
     {
         _courseService = courseService;
+    }
+
+    [RelayCommand]
+    private async Task Save()
+    {
+        try
+        {
+            // 1. Kurstyp av kryssrutan
+            CourseType type;
+            if (IsRemote)
+            {
+                type = CourseType.Remote;
+            }
+            else
+            {
+                type = CourseType.Classroom;
+            }
+            
+            // Bygg kursen av fälten
+            var course = new Course
+            {
+                CourseNumber = CourseNumber,
+                Title = Title,
+                LengthInWeeks = LengthInWeeks,
+                StartDate = StartDate ?? DateTime.Today,
+                EndDate = EndDate ?? DateTime.Today,
+                CourseType = type
+            };
+            
+            // 3. Spara via CourseService
+            await _courseService.AddCourse(course);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
     }
 }
