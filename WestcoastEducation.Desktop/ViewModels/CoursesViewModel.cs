@@ -32,7 +32,6 @@ public partial class CoursesViewModel : ViewModelBase
         {
             // Be CourseService om kurserna
             var courses = await _courseService.LoadCourses();
-            Console.WriteLine($"Hämtade {courses.Count} kurser");
             // Lägg dem i listan som vyn visar
             Courses = new ObservableCollection<Course>(courses);
         }

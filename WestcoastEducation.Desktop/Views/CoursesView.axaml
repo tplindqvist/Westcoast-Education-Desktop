@@ -2,7 +2,35 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:WestcoastEducation.Desktop.ViewModels"
+             x:DataType="vm:CoursesViewModel"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="WestcoastEducation.Desktop.Views.CoursesView">
-    <TextBlock>Kurser</TextBlock>
+    <StackPanel>
+        <TextBlock Text="Kurser" />
+
+        <!-- Rubrik -->
+        <Grid ColumnDefinitions="100,250,80,120,120">
+            <TextBlock Grid.Column="0" Text="Kursnr" />
+            <TextBlock Grid.Column="1" Text="Titel" />
+            <TextBlock Grid.Column="2" Text="Veckor" />
+            <TextBlock Grid.Column="3" Text="Start" />
+            <TextBlock Grid.Column="4" Text="Slut" />
+        </Grid>
+
+        <!-- En rad per kurs -->
+        <ItemsControl ItemsSource="{Binding Courses}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Grid ColumnDefinitions="100,250,80,120,120">
+                        <TextBlock Grid.Column="0" Text="{Binding CourseNumber}" />
+                        <TextBlock Grid.Column="1" Text="{Binding Title}" />
+                        <TextBlock Grid.Column="2" Text="{Binding LengthInWeeks}" />
+                        <TextBlock Grid.Column="3" Text="{Binding StartDate}" />
+                        <TextBlock Grid.Column="4" Text="{Binding EndDate}" />
+                    </Grid>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </StackPanel>
 </UserControl>
