@@ -2,6 +2,7 @@ using System;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using WestcoastEducation.Core.Interfaces;
 using WestcoastEducation.Core.Models;
 
@@ -34,6 +35,23 @@ public partial class CoursesViewModel : ViewModelBase
             var courses = await _courseService.LoadCourses();
             // Lägg dem i listan som vyn visar
             Courses = new ObservableCollection<Course>(courses);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+    }
+
+    [RelayCommand]
+    private async Task DeleteCourse(string id)
+    {
+        try
+        {
+            // Be CourseService ta bort kursen
+            await _courseService.DeleteCourse(id);
+            
+            // Hämta listan på nytt
+            await LoadCourses();
         }
         catch (Exception ex)
         {
