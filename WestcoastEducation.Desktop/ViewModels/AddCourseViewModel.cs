@@ -40,7 +40,7 @@ public partial class AddCourseViewModel : ViewModelBase
             {
                 type = CourseType.Classroom;
             }
-            
+
             // Bygg kursen av fälten
             var course = new Course
             {
@@ -51,13 +51,24 @@ public partial class AddCourseViewModel : ViewModelBase
                 EndDate = EndDate ?? DateTime.Today,
                 CourseType = type
             };
-            
+
             // 3. Spara via CourseService
             await _courseService.AddCourse(course);
+            ClearForm();
         }
         catch (Exception ex)
         {
             Console.WriteLine(ex.Message);
         }
+    }
+
+    private void ClearForm()
+    {
+        CourseNumber = string.Empty;
+        Title = string.Empty;
+        LengthInWeeks = 0;
+        StartDate = null;
+        EndDate = null;
+        IsRemote = false;
     }
 }
