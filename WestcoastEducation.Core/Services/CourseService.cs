@@ -5,13 +5,14 @@ namespace WestcoastEducation.Core.Services;
 
 public class CourseService : ICourseService
 {
+    // Levereras via DI, CourseService skapar den inte själv
     private readonly IHttpService<Course> _httpService;
 
     public CourseService(IHttpService<Course> httpService)
     {
         _httpService = httpService;
     }
-    
+
     public async Task<List<Course>> LoadCourses()
     {
         var courses = await _httpService.Get("courses");

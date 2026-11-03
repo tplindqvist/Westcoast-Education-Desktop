@@ -1,22 +1,32 @@
+using System;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace WestcoastEducation.Desktop.ViewModels;
 
 public partial class MainViewModel : ViewModelBase
 {
-    [ObservableProperty] 
-    public partial ViewModelBase CurrentView { get; set; } = new HomeViewModel();
+    // DI-maskinen, används för att skapa sidor tillsammans med deras beroenden
+    private readonly IServiceProvider _serviceProvider;
+
+    public MainViewModel(IServiceProvider serviceProvider)
+    {
+        _serviceProvider = serviceProvider;
+    }
+
+    [ObservableProperty] public partial ViewModelBase CurrentView { get; set; } = new HomeViewModel();
 
     [RelayCommand]
     private void GoToHome()
     {
-        CurrentView =  new HomeViewModel();
+        CurrentView = new HomeViewModel();
     }
 
     [RelayCommand]
     private void GoToCourses()
     {
-        CurrentView = new CoursesViewModel();
+        // DI skapar sidan och lämnar in ICourseService automatiskt
+        CurrentView = _serviceProvider.GetRequiredService<CoursesViewModel>();
     }
 }
