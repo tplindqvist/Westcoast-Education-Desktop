@@ -10,11 +10,11 @@ public class Course
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }
     public CourseType CourseType { get; set; }
+
     [JsonIgnore] // Bara kursens egna uppgifter ska med
     public Teacher? Teacher { get; set; } // Aggregation (läraren skapas någon annanstans, kursen pekar bara på den) 
 
-    [JsonIgnore] 
-    public List<Student> Students { get; set; } = new List<Student>();
+    [JsonIgnore] public List<Student> Students { get; set; } = new List<Student>();
 
     public void AddStudent(Student student)
     {
@@ -46,16 +46,19 @@ public class Course
         }
     }
 
-    private string GetCourseTypeText()
+    [JsonIgnore]
+    public string CourseTypeText
     {
-        if (CourseType == CourseType.Classroom)
+        get
         {
-            return "Klassrum";
-        }
-        else
-        {
-            return "Distans";
+            if (CourseType == CourseType.Classroom)
+            {
+                return "Klassrum";
+            }
+            else
+            {
+                return "Distans";
+            }
         }
     }
-
 }
