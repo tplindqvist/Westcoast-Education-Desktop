@@ -14,5 +14,6 @@ public static class ServiceCollectionExtensions
         collection.AddSingleton<ICourseService, CourseService>();
         collection.AddSingleton<IHttpService<Course>, HttpService<Course>>();
         collection.AddTransient<CoursesViewModel>(); // Transient: ny sida varje gång, så att listan hämtas på nytt
+        collection.AddTransient<AddCourseViewModel>();
     }
 }

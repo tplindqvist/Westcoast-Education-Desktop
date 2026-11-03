@@ -29,4 +29,10 @@ public partial class MainViewModel : ViewModelBase
         // DI skapar sidan och lämnar in ICourseService automatiskt
         CurrentView = _serviceProvider.GetRequiredService<CoursesViewModel>();
     }
+
+    [RelayCommand]
+    private void GoToAddCourse()
+    {
+        CurrentView = _serviceProvider.GetRequiredService<AddCourseViewModel>();
+    }
 }
