@@ -23,4 +23,9 @@ public class CourseService : ICourseService
     {
        await _httpService.Post("courses", course);
     }
+
+    public async Task DeleteCourse(string id)
+    {
+        await _httpService.Delete("courses", id);
+    }
 }

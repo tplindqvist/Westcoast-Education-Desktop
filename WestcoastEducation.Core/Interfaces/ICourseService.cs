@@ -6,4 +6,5 @@ public interface ICourseService
 {
     Task<List<Course>> LoadCourses();
     Task AddCourse(Course course);
+    Task DeleteCourse(string id);
 }
