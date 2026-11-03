@@ -4,6 +4,7 @@ namespace WestcoastEducation.Core.Models;
 
 public class Course
 {
+    // Id från RestDb (_id). Skickas inte med för nya kurser, RestDb skapar det
     [JsonPropertyName("_id")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public string? Id { get; set; }

@@ -61,8 +61,16 @@ public class HttpService<T> : IHttpService<T> where T : class
     {
         // Skicka objekt som JSON och invänta svar
         var response = await _httpClient.PostAsJsonAsync(resource, data, _options);
-        // Svara RestDb nej, kasta ett fel
-        
+        // Svarar RestDb nej, kasta ett fel
+
+        response.EnsureSuccessStatusCode();
+    }
+
+    public async Task Delete(string resource, string id)
+    {
+        // Skicka borttagningen med id:t sist i adressen
+        var response = await _httpClient.DeleteAsync($"{resource}/{id}");
+
         response.EnsureSuccessStatusCode();
     }
 }
