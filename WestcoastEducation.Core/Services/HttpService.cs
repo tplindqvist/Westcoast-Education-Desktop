@@ -1,3 +1,4 @@
+using System.Net.Http.Json;
 using System.Text.Encodings.Web;
 using System.Text.Json;
 using Microsoft.Extensions.Configuration;
@@ -54,5 +55,14 @@ public class HttpService<T> : IHttpService<T> where T : class
         // 4. Gör om JSON-texten till en lista med T
         var data = JsonSerializer.Deserialize<List<T>>(result, _options) ?? [];
         return data;
+    }
+
+    public async Task Post(string resource, T data)
+    {
+        // Skicka objekt som JSON och invänta svar
+        var response = await _httpClient.PostAsJsonAsync(resource, data, _options);
+        // Svara RestDb nej, kasta ett fel
+        
+        response.EnsureSuccessStatusCode();
     }
 }
