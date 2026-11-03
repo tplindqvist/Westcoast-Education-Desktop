@@ -2,7 +2,28 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:WestcoastEducation.Desktop.ViewModels"
+             x:DataType="vm:AddCourseViewModel"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="WestcoastEducation.Desktop.Views.AddCourseView">
-    <TextBlock Text="Ny kurs" />
+    <StackPanel>
+        <TextBlock Text="Ny kurs" />
+        <Grid ColumnDefinitions="150, 300" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto">
+
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Kursnr" />
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Titel" />
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Veckor" />
+            <TextBlock Grid.Row="3" Grid.Column="0" Text="Start" />
+            <TextBlock Grid.Row="4" Grid.Column="0" Text="Slut" />
+            <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding CourseNumber}" />
+            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Title}" />
+            <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding LengthInWeeks}" />
+            <CalendarDatePicker Grid.Row="3" Grid.Column="1" SelectedDate="{Binding StartDate}" />
+            <CalendarDatePicker Grid.Row="4" Grid.Column="1" SelectedDate="{Binding EndDate}" />
+            <CheckBox Content="Distans" Grid.Row="5" Grid.Column="1" IsChecked="{Binding IsRemote}" />
+            
+            </Grid>
+        
+            <Button Content="Spara" Command="{Binding SaveCommand}" />
+    </StackPanel>
 </UserControl>
