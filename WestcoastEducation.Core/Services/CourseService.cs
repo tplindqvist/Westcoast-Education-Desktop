@@ -18,4 +18,9 @@ public class CourseService : ICourseService
         var courses = await _httpService.Get("courses");
         return courses;
     }
+
+    public async Task AddCourse(Course course)
+    {
+       await _httpService.Post("courses", course);
+    }
 }
