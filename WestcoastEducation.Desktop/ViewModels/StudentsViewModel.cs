@@ -31,7 +31,7 @@ public partial class StudentsViewModel : ViewModelBase
     {
         try
         {
-            // Be StudentService om kurserna
+            // Be StudentService om studenterna
             var students = await _studentService.LoadStudents();
             // Lägg dem i listan som vyn visar
             Students = new ObservableCollection<Student>(students);
@@ -47,7 +47,7 @@ public partial class StudentsViewModel : ViewModelBase
     {
         try
         {
-            // Be StudentService ta bort kursen
+            // Be StudentService ta bort studenten
             await _studentService.DeleteStudent(id);
             // Hämta listan på nytt
             await LoadStudents();

@@ -7,7 +7,9 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="WestcoastEducation.Desktop.Views.CoursesView">
     <StackPanel>
-        <TextBlock Text="Kurser" />
+        <Border Classes="titleBar">
+            <TextBlock Text="Kurser" />
+        </Border>
 
         <!-- Rubrik -->
         <Grid ColumnDefinitions="100,250,80,120,120,100,Auto">
