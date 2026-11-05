@@ -18,5 +18,6 @@ public static class ServiceCollectionExtensions
         collection.AddTransient<AddCourseViewModel>();
         collection.AddSingleton<IStudentService, StudentService>();
         collection.AddSingleton<IHttpService<Student>, HttpService<Student>>();
+        collection.AddTransient<StudentsViewModel>();
     }
 }
