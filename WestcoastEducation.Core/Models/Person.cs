@@ -4,7 +4,7 @@ namespace WestcoastEducation.Core.Models;
 
 public abstract class Person
 {
-    // Id från RestDb (_id). Skickas inte med för nya kurser, RestDb skapar det
+    // Id från RestDb (_id). Skickas inte med för nya personer, RestDb skapar det
     [JsonPropertyName("_id")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public string? Id { get; set; }
