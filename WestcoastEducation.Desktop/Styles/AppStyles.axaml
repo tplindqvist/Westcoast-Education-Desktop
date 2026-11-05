@@ -15,6 +15,31 @@
     <Style Selector="Border.titleBar>TextBlock">
         <Setter Property="Foreground" Value="{DynamicResource LightTextBrush}" />
         <Setter Property="FontWeight" Value="Bold" />
-    </Style>    
+    </Style>
+
+    <Style Selector="UserControl.content">
+        <Setter Property="Padding" Value="20" />
+    </Style>
+
+    <!-- rubrikraden i listor -->
+    <Style Selector="Border.listHeader">
+        <Setter Property="BorderBrush" Value="{DynamicResource ShadowBrush}" />
+        <Setter Property="BorderThickness" Value="0,0,0,1" />
+        <Setter Property="Padding" Value="0,0,0,4" />
+        <Setter Property="Margin" Value="0,0,0,6" />
+    </Style>
+
+    <Style Selector="Border.listHeader TextBlock">
+        <Setter Property="FontWeight" Value="Bold" />
+    </Style>
+
+    <!-- varje rad i listor -->
+    <Style Selector="Grid.listRow">
+        <Setter Property="Margin" Value="0,2" />
+    </Style>
+
+    <Style Selector="Grid.listRow > TextBlock">
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
 
 </Styles>

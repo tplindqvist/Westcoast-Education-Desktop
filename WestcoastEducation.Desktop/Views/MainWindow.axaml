@@ -19,7 +19,7 @@
                 <MenuItem Header="Lägg till kurs" Command="{Binding GoToAddCourseCommand}" />
             </MenuItem>
         </Menu>
-        <UserControl Grid.Row="1" Padding="20" Content="{Binding CurrentView}" />
+        <UserControl Grid.Row="1" Classes="content" Content="{Binding CurrentView}" />
 
     </Grid>
 
