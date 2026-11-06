@@ -19,9 +19,12 @@
                 <MenuItem Header="Lista kurser" Command="{Binding GoToCoursesCommand}" />
                 <MenuItem Header="Lägg till kurs" Command="{Binding GoToAddCourseCommand}" />
             </MenuItem>
+            
             <MenuItem Header="Studenter">
                 <MenuItem Header="Lista studenter" Command="{Binding GoToStudentsCommand}" />
+                <MenuItem Header="Lägg till student" Command="{Binding GoToAddStudentCommand}" />
             </MenuItem>
+            
         </Menu>
 
 
