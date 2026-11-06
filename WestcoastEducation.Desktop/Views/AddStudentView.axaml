@@ -1,0 +1,34 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:WestcoastEducation.Desktop.ViewModels"
+             x:DataType="vm:AddStudentViewModel"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="WestcoastEducation.Desktop.Views.AddStudentView">
+    <StackPanel>
+        <Border Classes="titleBar">
+            <TextBlock Text="Ny student" />
+        </Border>
+        <Grid ColumnDefinitions="150, 300" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto">
+
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Förnamn" />
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Efternamn" />
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Telefonnummer" />
+            <TextBlock Grid.Row="3" Grid.Column="0" Text="Personnummer" />
+            <TextBlock Grid.Row="4" Grid.Column="0" Text="Adress" />
+            <TextBlock Grid.Row="5" Grid.Column="0" Text="Postnummer" />
+            <TextBlock Grid.Row="6" Grid.Column="0" Text="Ort" />
+            <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding FirstName}" />
+            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding LastName}" />
+            <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Phone}" />
+            <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding PersonalNumber}" />
+            <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Street}" />
+            <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding ZipCode}" />
+            <TextBox Grid.Row="6" Grid.Column="1" Text="{Binding City}" />
+
+        </Grid>
+
+        <Button Content="Spara" Command="{Binding SaveCommand}" />
+    </StackPanel>
+</UserControl>
