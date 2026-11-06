@@ -1,16 +1,16 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    
+
     <Color x:Key="PrimaryColor">#008080</Color>
     <SolidColorBrush x:Key="PrimaryBrush" Color="{DynamicResource PrimaryColor}" />
-    
+
     <Color x:Key="BackgroundColor">#C0C0C0</Color>
     <SolidColorBrush x:Key="BackgroundBrush" Color="{DynamicResource BackgroundColor}" />
-    
+
     <Color x:Key="TextColor">#1A1A1A</Color>
     <SolidColorBrush x:Key="TextBrush" Color="{DynamicResource TextColor}" />
-    
-    <Color x:Key="AccentColor">#000080</Color>
+
+    <Color x:Key="AccentColor">#394dcd</Color>
     <SolidColorBrush x:Key="AccentBrush" Color="{DynamicResource AccentColor}" />
 
     <Color x:Key="LightTextColor">#FFFFFF</Color>
@@ -27,8 +27,8 @@
 
     <Color x:Key="LineColor">#000000</Color>
     <SolidColorBrush x:Key="LineBrush" Color="{DynamicResource LineColor}" />
-    
+
     <Color x:Key="DangerColor">#9B2A2A</Color>
     <SolidColorBrush x:Key="DangerBrush" Color="{DynamicResource DangerColor}" />
-    
+
 </ResourceDictionary>

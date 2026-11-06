@@ -4,6 +4,8 @@
     <Style Selector="Window">
         <Setter Property="Background" Value="{DynamicResource BackgroundBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
+        <Setter Property="Width" Value="900" />
+        <Setter Property="Height" Value="600" />
     </Style>
 
     <Style Selector="Border.titleBar">
@@ -31,6 +33,17 @@
 
     <Style Selector="Border.listHeader TextBlock">
         <Setter Property="FontWeight" Value="Bold" />
+    </Style>
+
+    <!-- laddningsstapel -->
+    <Style Selector="ProgressBar.loading">
+        <Setter Property="Foreground" Value="{DynamicResource AccentBrush}" />
+        <Setter Property="Background" Value="{DynamicResource InputBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ShadowBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="0" />
+        <Setter Property="Height" Value="16" />
+        <Setter Property="Margin" Value="0,0,0,10" />
     </Style>
 
     <!-- varje rad i listor -->

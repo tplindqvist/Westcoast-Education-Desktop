@@ -29,6 +29,7 @@ public partial class CoursesViewModel : ViewModelBase
 
     private async Task LoadCourses()
     {
+        IsLoading = true;
         try
         {
             // Be CourseService om kurserna
@@ -39,6 +40,10 @@ public partial class CoursesViewModel : ViewModelBase
         catch (Exception ex)
         {
             Console.WriteLine(ex.Message);
+        }
+        finally
+        {
+            IsLoading = false;
         }
     }
 
