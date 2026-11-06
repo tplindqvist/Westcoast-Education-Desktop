@@ -20,5 +20,7 @@ public static class ServiceCollectionExtensions
         collection.AddSingleton<IHttpService<Student>, HttpService<Student>>();
         collection.AddTransient<StudentsViewModel>();
         collection.AddTransient<AddStudentViewModel>();
+        collection.AddSingleton<ITeacherService, TeacherService>();
+        collection.AddSingleton<IHttpService<Teacher>, HttpService<Teacher>>();
     }
 }
