@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace WestcoastEducation.Core.Models;
 
 public class Student : Person
@@ -7,6 +9,5 @@ public class Student : Person
     {
         return $"Student: {base.ToString()}";
     }
-
 
 }
