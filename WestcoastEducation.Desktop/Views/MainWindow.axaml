@@ -9,7 +9,7 @@
         Icon="/Assets/avalonia-logo.ico"
         Title="WestcoastEducation.Desktop">
 
-    <Grid RowDefinitions="Auto,*">
+    <Grid RowDefinitions="Auto,*,Auto">
         <Menu Grid.Row="0">
             <MenuItem Header="Arkiv">
                 <MenuItem Header="Hem" Command="{Binding GoToHomeCommand}" />
@@ -20,6 +20,9 @@
             </MenuItem>
         </Menu>
         <UserControl Grid.Row="1" Classes="content" Content="{Binding CurrentView}" />
+
+        <ProgressBar Grid.Row="2" Classes="loading" IsIndeterminate="True"
+                     IsVisible="{Binding CurrentView.IsLoading}" />
 
     </Grid>
 

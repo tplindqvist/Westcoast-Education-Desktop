@@ -10,7 +10,6 @@
         <Border Classes="titleBar">
             <TextBlock Text="Kurser" />
         </Border>
-        <ProgressBar Classes="loading" IsIndeterminate="True" IsVisible="{Binding IsLoading}"/>
 
         <!-- Rubrik -->
         <Border Classes="listHeader">
