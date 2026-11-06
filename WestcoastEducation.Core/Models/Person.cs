@@ -11,9 +11,9 @@ public abstract class Person
 
     public string FirstName { get; set; } = string.Empty;
     public string LastName { get; set; } = string.Empty;
-    public int Phone { get; set; }
+    public string Phone { get; set; } = string.Empty;
     public string PersonalNumber { get; set; } = string.Empty;
     public string Street { get; set; } = string.Empty;
-    public int ZipCode { get; set; }
+    public string ZipCode { get; set; }  = string.Empty;
     public string City { get; set; } = string.Empty;
 }

@@ -27,6 +27,7 @@
             
             <MenuItem Header="Lärare">
                 <MenuItem Header="Lista lärare" Command="{Binding GoToTeachersCommand}" />
+                <MenuItem Header="Lägg till lärare" Command="{Binding GoToAddTeacherCommand}" />
             </MenuItem>
             
         </Menu>

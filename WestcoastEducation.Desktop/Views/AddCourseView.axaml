@@ -26,6 +26,6 @@
 
         </Grid>
 
-        <Button Content="Spara" Command="{Binding SaveCommand}" />
+        <Button Classes="save" Content="Spara" Command="{Binding SaveCommand}" />
     </StackPanel>
 </UserControl>

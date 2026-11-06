@@ -9,13 +9,21 @@ namespace WestcoastEducation.Desktop.ViewModels;
 
 public partial class AddStudentViewModel : ViewModelBase
 {
-    [ObservableProperty] public partial string FirstName { get; set; } = string.Empty;
-    [ObservableProperty] public partial string LastName { get; set; } = string.Empty;
-    [ObservableProperty] public partial int Phone { get; set; }
-    [ObservableProperty] public partial string PersonalNumber { get; set; } = string.Empty;
-    [ObservableProperty] public partial string Street { get; set; } = string.Empty;
-    [ObservableProperty] public partial int ZipCode { get; set; }
-    [ObservableProperty] public partial string City { get; set; } = string.Empty;
+    [ObservableProperty] 
+    public partial string FirstName { get; set; } = string.Empty;
+    [ObservableProperty] 
+    public partial string LastName { get; set; } = string.Empty;
+
+    [ObservableProperty] 
+    public partial string Phone { get; set; } = string.Empty;
+    [ObservableProperty] 
+    public partial string PersonalNumber { get; set; } = string.Empty;
+    [ObservableProperty] 
+    public partial string Street { get; set; } = string.Empty;
+    [ObservableProperty] 
+    public partial string ZipCode { get; set; } = string.Empty;
+    [ObservableProperty] 
+    public partial string City { get; set; } = string.Empty;
 
     private readonly IStudentService _studentService;
 
@@ -54,10 +62,10 @@ public partial class AddStudentViewModel : ViewModelBase
     {
         FirstName = string.Empty;
         LastName = string.Empty;
-        Phone = 0;
+        Phone = string.Empty;
         PersonalNumber = string.Empty;
         Street = string.Empty;
-        ZipCode = 0;
+        ZipCode = string.Empty;
         City = string.Empty;
     }
 }

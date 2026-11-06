@@ -56,4 +56,17 @@
         <Setter Property="TextWrapping" Value="Wrap" />
     </Style>
 
+        <!-- Rad med textruta + knapp i formulär -->
+    <Style Selector="Grid.inputRow">
+        <Setter Property="Margin" Value="0,4" />
+    </Style>
+    <Style Selector="Grid.inputRow > Button">
+        <Setter Property="Margin" Value="8,0,0,0" />
+    </Style>
+
+    <!-- Spara-knappen i formulär -->
+    <Style Selector="Button.save">
+        <Setter Property="Margin" Value="0,8,0,0" />
+    </Style>
+
 </Styles>

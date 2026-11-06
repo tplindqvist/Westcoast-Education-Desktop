@@ -1,0 +1,59 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:WestcoastEducation.Desktop.ViewModels"
+             x:DataType="vm:AddTeacherViewModel"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="WestcoastEducation.Desktop.Views.AddTeacherView">
+    <StackPanel>
+        <Border Classes="titleBar">
+            <TextBlock Text="Ny lärare" />
+        </Border>
+        <Grid ColumnDefinitions="150, 300" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto">
+
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Förnamn" />
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Efternamn" />
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Telefonnummer" />
+            <TextBlock Grid.Row="3" Grid.Column="0" Text="Personnummer" />
+            <TextBlock Grid.Row="4" Grid.Column="0" Text="Adress" />
+            <TextBlock Grid.Row="5" Grid.Column="0" Text="Postnummer" />
+            <TextBlock Grid.Row="6" Grid.Column="0" Text="Ort" />
+            <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding FirstName}" />
+            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding LastName}" />
+            <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Phone}" />
+            <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding PersonalNumber}" />
+            <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Street}" />
+            <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding ZipCode}" />
+            <TextBox Grid.Row="6" Grid.Column="1" Text="{Binding City}" />
+
+        </Grid>
+
+        <!-- Kompetensområden -->
+        <Border Classes="listHeader">
+            <TextBlock Text="Kompetensområden" />
+        </Border>
+        <!-- Ny  ruta + lägg till -->
+        <Grid Classes="inputRow" ColumnDefinitions="300,Auto">
+            <TextBox Grid.Column="0" Text="{Binding NewSubject}" Watermark="t.ex. drejning" />
+            <Button Grid.Column="1" Content="Lägg till område" Command="{Binding AddSubjectCommand}" />
+        </Grid>
+
+        <!-- Listan med tillagda områden -->
+        <ItemsControl ItemsSource="{Binding Subjects}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Grid Classes="listRow" ColumnDefinitions="300,Auto">
+                        <TextBlock Grid.Column="0" Text="{Binding}" />
+                        <Button Grid.Column="1" Content="Ta bort"
+                                Command="{Binding $parent[UserControl].((vm:AddTeacherViewModel)DataContext).RemoveSubjectCommand}"
+                                CommandParameter="{Binding}" />
+                    </Grid>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
+
+        <Button Classes="save" Content="Spara" Command="{Binding SaveCommand}" />
+    </StackPanel>
+</UserControl>
