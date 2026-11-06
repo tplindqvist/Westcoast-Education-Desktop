@@ -53,6 +53,7 @@
 
     <Style Selector="Grid.listRow > TextBlock">
         <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="TextWrapping" Value="Wrap" />
     </Style>
 
 </Styles>
