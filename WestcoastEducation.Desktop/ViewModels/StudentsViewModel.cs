@@ -29,6 +29,7 @@ public partial class StudentsViewModel : ViewModelBase
 
     private async Task LoadStudents()
     {
+        IsLoading = true;
         try
         {
             // Be StudentService om studenterna
@@ -39,6 +40,10 @@ public partial class StudentsViewModel : ViewModelBase
         catch (Exception ex)
         {
             Console.WriteLine(ex.Message);
+        }
+        finally
+        {
+            IsLoading = false;
         }
     }
 

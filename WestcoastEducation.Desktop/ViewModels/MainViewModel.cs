@@ -35,4 +35,10 @@ public partial class MainViewModel : ViewModelBase
     {
         CurrentView = _serviceProvider.GetRequiredService<AddCourseViewModel>();
     }
+    
+    [RelayCommand]
+    private void GoToStudents()
+    {
+        CurrentView = _serviceProvider.GetRequiredService<StudentsViewModel>();
+    }
 }

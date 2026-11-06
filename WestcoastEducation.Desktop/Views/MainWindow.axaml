@@ -14,11 +14,17 @@
             <MenuItem Header="Arkiv">
                 <MenuItem Header="Hem" Command="{Binding GoToHomeCommand}" />
             </MenuItem>
+            
             <MenuItem Header="Kurser">
                 <MenuItem Header="Lista kurser" Command="{Binding GoToCoursesCommand}" />
                 <MenuItem Header="Lägg till kurs" Command="{Binding GoToAddCourseCommand}" />
             </MenuItem>
+            <MenuItem Header="Studenter">
+                <MenuItem Header="Lista studenter" Command="{Binding GoToStudentsCommand}" />
+            </MenuItem>
         </Menu>
+
+
         <UserControl Grid.Row="1" Classes="content" Content="{Binding CurrentView}" />
 
         <ProgressBar Grid.Row="2" Classes="loading" IsIndeterminate="True"
