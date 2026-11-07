@@ -27,9 +27,4 @@ public class StudentService : IStudentService
     {
         await _httpService.Delete("students", id);
     }
-
-    public async Task UpdateStudent(string id, Student student)
-    {
-        await _httpService.Put("students", id, student);
-    }
 }
