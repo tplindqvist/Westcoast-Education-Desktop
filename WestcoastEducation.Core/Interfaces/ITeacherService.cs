@@ -7,4 +7,5 @@ public interface ITeacherService
     Task<List<Teacher>> LoadTeachers();
     Task AddTeacher(Teacher teacher);
     Task DeleteTeacher(string id);
+    Task UpdateTeacher(string id, Teacher teacher);
 }

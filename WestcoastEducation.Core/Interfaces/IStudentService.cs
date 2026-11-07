@@ -7,4 +7,5 @@ public interface IStudentService
     Task<List<Student>> LoadStudents();
     Task AddStudent(Student student);
     Task DeleteStudent(string id);
+    Task UpdateStudent(string id, Student student);
 }
