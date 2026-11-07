@@ -13,7 +13,7 @@
         
         <!-- Rubrik -->
         <Border Classes="listHeader">
-            <Grid ColumnDefinitions="150,150,120,150,250,Auto,Auto">
+            <Grid ColumnDefinitions="150,150,120,150,*,Auto,Auto">
                 <TextBlock Grid.Column="0" Text="Förnamn" />
                 <TextBlock Grid.Column="1" Text="Efternamn" />
                 <TextBlock Grid.Column="2" Text="Telefonnummer" />
@@ -26,7 +26,7 @@
         <ItemsControl ItemsSource="{Binding Teachers}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Grid Classes="listRow" ColumnDefinitions="150,150,120,150,250,Auto,Auto">
+                    <Grid Classes="listRow" ColumnDefinitions="150,150,120,150,*,Auto,Auto">
                         <TextBlock Grid.Column="0" Text="{Binding FirstName}" />
                         <TextBlock Grid.Column="1" Text="{Binding LastName}" />
                         <TextBlock Grid.Column="2" Text="{Binding Phone}" />

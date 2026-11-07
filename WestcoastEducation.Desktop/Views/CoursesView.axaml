@@ -13,7 +13,7 @@
 
         <!-- Rubrik -->
         <Border Classes="listHeader">
-            <Grid ColumnDefinitions="100,250,80,120,120,100,Auto,Auto">
+            <Grid ColumnDefinitions="100,200,80,120,120,*,Auto,Auto">
                 <TextBlock Grid.Column="0" Text="Kursnr" />
                 <TextBlock Grid.Column="1" Text="Titel" />
                 <TextBlock Grid.Column="2" Text="Veckor" />
@@ -27,7 +27,7 @@
         <ItemsControl ItemsSource="{Binding Courses}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Grid Classes="listRow" ColumnDefinitions="100,250,80,120,120,100,Auto,Auto">
+                    <Grid Classes="listRow" ColumnDefinitions="100,200,80,120,120,*,Auto,Auto">
                         <TextBlock Grid.Column="0" Text="{Binding CourseNumber}" />
                         <TextBlock Grid.Column="1" Text="{Binding Title}" />
                         <TextBlock Grid.Column="2" Text="{Binding LengthInWeeks}" />
