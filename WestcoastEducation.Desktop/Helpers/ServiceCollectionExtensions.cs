@@ -1,9 +1,10 @@
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.VisualBasic;
 using WestcoastEducation.Core.Interfaces;
 using WestcoastEducation.Core.Models;
 using WestcoastEducation.Core.Services;
+using WestcoastEducation.Desktop.Interfaces;
 using WestcoastEducation.Desktop.ViewModels;
+using WestcoastEducation.Desktop.Services;
 
 namespace WestcoastEducation.Desktop.Helpers;
 
@@ -26,5 +27,6 @@ public static class ServiceCollectionExtensions
         collection.AddTransient<AddTeacherViewModel>();
         collection.AddTransient<EditCourseViewModel>();
         collection.AddTransient<EditTeacherViewModel>();
+        collection.AddSingleton<IDialogService, DialogService>();
     }
 }

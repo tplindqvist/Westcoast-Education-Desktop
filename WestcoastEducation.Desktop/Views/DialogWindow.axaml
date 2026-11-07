@@ -1,0 +1,19 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="WestcoastEducation.Desktop.Views.DialogWindow"
+        Classes="dialog"
+        Title="Westcoast Education"
+        CanResize="False"
+        WindowStartupLocation="CenterOwner">
+    <StackPanel Classes="dialog">
+        <TextBlock x:Name="MessageText" />
+        <StackPanel Classes="dialogButtons">
+            <Button x:Name="YesButton" Content="Ja" Click="Yes_Click" />
+            <Button x:Name="NoButton" Content="Nej" Click="No_Click" />
+            <Button x:Name="OkButton" Content="OK" Click="Yes_Click" />
+        </StackPanel>
+    </StackPanel>
+</Window>

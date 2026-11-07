@@ -4,6 +4,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using WestcoastEducation.Core.Interfaces;
 using WestcoastEducation.Core.Models;
+using WestcoastEducation.Desktop.Interfaces;
 
 namespace WestcoastEducation.Desktop.ViewModels;
 
@@ -19,10 +20,13 @@ public partial class EditCourseViewModel : ViewModelBase
     // Sparar den nya kursen via CourseService, aldrig direkt mot RestDB
     private readonly ICourseService _courseService;
 
-
-    public EditCourseViewModel(ICourseService courseService)
+    // Visar dialogrutor utan ViewModelns vetskap
+    private readonly IDialogService _dialogService;
+    
+    public EditCourseViewModel(ICourseService courseService,  IDialogService dialogService)
     {
         _courseService = courseService;
+        _dialogService = dialogService;
     }
 
     // Id på kursen som ändras för Put
@@ -43,6 +47,19 @@ public partial class EditCourseViewModel : ViewModelBase
     [RelayCommand]
     private async Task Save()
     {
+        // Formuläret är tömt, inget att spara
+        if (_id == string.Empty)
+        {
+            return;
+        }
+        
+        // Fråga först, avbryt om svar är Nej
+        var answer = await _dialogService.Confirm("Är du säker på att du vill spara ändringarna?");
+        if (!answer)
+        {
+            return;
+        }
+
         try
         {
             // 1. Kurstyp av kryssrutan
@@ -69,10 +86,24 @@ public partial class EditCourseViewModel : ViewModelBase
 
             // 3. Spara via CourseService
             await _courseService.UpdateCourse(_id, course);
+            ClearForm();
+            await _dialogService.ShowMessage("Kursen uppdaterades!");
         }
         catch (Exception ex)
         {
             Console.WriteLine(ex.Message);
+            await _dialogService.ShowMessage("Något gick fel, kursen sparades inte");
         }
+        
     }
+        private void ClearForm()
+        {
+            CourseNumber = string.Empty;
+            Title = string.Empty;
+            LengthInWeeks = 0;
+            StartDate = null;
+            EndDate = null;
+            IsRemote = false;
+            _id = string.Empty;
+        }
 }

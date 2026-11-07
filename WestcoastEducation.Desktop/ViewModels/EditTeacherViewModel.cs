@@ -6,6 +6,7 @@ using WestcoastEducation.Core.Interfaces;
 using WestcoastEducation.Core.Models;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using WestcoastEducation.Desktop.Interfaces;
 
 namespace WestcoastEducation.Desktop.ViewModels;
 
@@ -29,12 +30,16 @@ public partial class EditTeacherViewModel : ViewModelBase
 
     private readonly ITeacherService _teacherService;
 
+    // Visar dialogrutor utan ViewModelns vetskap
+    private readonly IDialogService _dialogService;
+
     // Id på läraren som ändras för Put
     private string _id = string.Empty;
 
-    public EditTeacherViewModel(ITeacherService teacherService)
+    public EditTeacherViewModel(ITeacherService teacherService, IDialogService dialogService)
     {
         _teacherService = teacherService;
+        _dialogService = dialogService;
     }
 
     // Fyller formuläret med en befintlig lärare
@@ -48,7 +53,7 @@ public partial class EditTeacherViewModel : ViewModelBase
         Street = teacher.Street;
         ZipCode = teacher.ZipCode;
         City = teacher.City;
-        
+
         // Lägg lärarens kompetenser i formulärets lista
         foreach (var subject in teacher.Subjects)
         {
@@ -59,6 +64,19 @@ public partial class EditTeacherViewModel : ViewModelBase
     [RelayCommand]
     private async Task Save()
     {
+        // Formuläret är tömt, inget att spara
+        if (_id == string.Empty)
+        {
+            return;
+        }
+        
+        // Fråga först, avbryt om svar är Nej
+        var answer = await _dialogService.Confirm("Är du säker på att du vill spara ändringarna?");
+        if (!answer)
+        {
+            return;
+        }
+        
         try
         {
             var teacher = new Teacher
@@ -77,10 +95,12 @@ public partial class EditTeacherViewModel : ViewModelBase
             await _teacherService.UpdateTeacher(_id, teacher);
 
             ClearForm();
+            await _dialogService.ShowMessage("Läraren uppdaterades!");
         }
         catch (Exception ex)
         {
             Console.WriteLine(ex.Message);
+            await _dialogService.ShowMessage("Något gick fel, läraren sparades inte");
         }
     }
 
@@ -114,5 +134,6 @@ public partial class EditTeacherViewModel : ViewModelBase
         City = string.Empty;
         NewSubject = string.Empty;
         Subjects.Clear();
+        _id = string.Empty;
     }
 }
