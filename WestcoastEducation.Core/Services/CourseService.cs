@@ -21,11 +21,16 @@ public class CourseService : ICourseService
 
     public async Task AddCourse(Course course)
     {
-       await _httpService.Post("courses", course);
+        await _httpService.Post("courses", course);
     }
 
     public async Task DeleteCourse(string id)
     {
         await _httpService.Delete("courses", id);
+    }
+
+    public async Task UpdateCourse(string id, Course course)
+    {
+        await _httpService.Put("courses", id, course);
     }
 }

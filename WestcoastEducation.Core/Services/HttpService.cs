@@ -78,7 +78,7 @@ public class HttpService<T> : IHttpService<T> where T : class
     {
         // Skicka det uppdaterade objektet med id:t sist i adressen
         var response = await _httpClient.PutAsJsonAsync($"{resource}/{id}", data, _options);
-        
+
         response.EnsureSuccessStatusCode();
     }
 }

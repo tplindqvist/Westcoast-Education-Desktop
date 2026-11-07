@@ -2,6 +2,7 @@ using System;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.Extensions.DependencyInjection;
+using WestcoastEducation.Core.Models;
 
 namespace WestcoastEducation.Desktop.ViewModels;
 
@@ -55,5 +56,15 @@ public partial class MainViewModel : ViewModelBase
     private void GoToAddTeacher()
     {
         CurrentView = _serviceProvider.GetRequiredService<AddTeacherViewModel>();
+    }
+    [RelayCommand]
+    private void GoToEditCourse(Course course)
+    {
+        // DI skapar ett nytt tomt forumlär
+        var vm = _serviceProvider.GetRequiredService<EditCourseViewModel>();
+        // fyll formulär med kursens värden
+        vm.Load(course);
+        // Visa sidan
+        CurrentView = vm;
     }
 }
