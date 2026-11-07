@@ -13,7 +13,7 @@
         
         <!-- Rubrik -->
         <Border Classes="listHeader">
-            <Grid ColumnDefinitions="150,150,120,150,150,Auto">
+            <Grid ColumnDefinitions="150,150,120,150,250,Auto,Auto">
                 <TextBlock Grid.Column="0" Text="Förnamn" />
                 <TextBlock Grid.Column="1" Text="Efternamn" />
                 <TextBlock Grid.Column="2" Text="Telefonnummer" />
@@ -22,17 +22,20 @@
                 </Grid>
             </Border>
         
-        <!-- En rad per student -->
+        <!-- En rad per lärare -->
         <ItemsControl ItemsSource="{Binding Teachers}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Grid Classes="listRow" ColumnDefinitions="150,150,120,150,150,250,Auto">
+                    <Grid Classes="listRow" ColumnDefinitions="150,150,120,150,250,Auto,Auto">
                         <TextBlock Grid.Column="0" Text="{Binding FirstName}" />
                         <TextBlock Grid.Column="1" Text="{Binding LastName}" />
                         <TextBlock Grid.Column="2" Text="{Binding Phone}" />
                         <TextBlock Grid.Column="3" Text="{Binding City}" />
                         <TextBlock Grid.Column="4" Text="{Binding SubjectsText}" />
-                        <Button Grid.Column="5" Content="Radera"
+                        <Button Grid.Column="5" Content="Ändra"
+                                Command="{Binding $parent[Window].((vm:MainViewModel)DataContext).GoToEditTeacherCommand}"
+                                CommandParameter="{Binding}" />
+                        <Button Grid.Column="6" Content="Radera"
                                 Command="{Binding $parent[UserControl].((vm:TeachersViewModel)DataContext).DeleteTeacherCommand}"
                                 CommandParameter="{Binding Id}" />
                         </Grid>

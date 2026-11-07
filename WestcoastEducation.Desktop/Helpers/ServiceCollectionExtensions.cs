@@ -25,5 +25,6 @@ public static class ServiceCollectionExtensions
         collection.AddTransient<TeachersViewModel>();
         collection.AddTransient<AddTeacherViewModel>();
         collection.AddTransient<EditCourseViewModel>();
+        collection.AddTransient<EditTeacherViewModel>();
     }
 }

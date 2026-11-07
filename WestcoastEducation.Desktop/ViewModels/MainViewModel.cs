@@ -60,10 +60,20 @@ public partial class MainViewModel : ViewModelBase
     [RelayCommand]
     private void GoToEditCourse(Course course)
     {
-        // DI skapar ett nytt tomt forumlär
+        // DI skapar ett nytt tomt formulär
         var vm = _serviceProvider.GetRequiredService<EditCourseViewModel>();
         // fyll formulär med kursens värden
         vm.Load(course);
+        // Visa sidan
+        CurrentView = vm;
+    }
+    [RelayCommand]
+    private void GoToEditTeacher(Teacher teacher)
+    {
+        // DI skapar ett nytt tomt formulär
+        var vm = _serviceProvider.GetRequiredService<EditTeacherViewModel>();
+        // fyll formulär med lärarens värden
+        vm.Load(teacher);
         // Visa sidan
         CurrentView = vm;
     }
