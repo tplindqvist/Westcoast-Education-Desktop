@@ -16,7 +16,7 @@
             <Grid ColumnDefinitions="100,200,80,120,120,*,Auto,Auto">
                 <TextBlock Grid.Column="0" Text="Kursnr" />
                 <TextBlock Grid.Column="1" Text="Titel" />
-                <TextBlock Grid.Column="2" Text="Veckor" />
+                <TextBlock Grid.Column="2" Text="Antal veckor" />
                 <TextBlock Grid.Column="3" Text="Start" />
                 <TextBlock Grid.Column="4" Text="Slut" />
                 <TextBlock Grid.Column="5" Text="Typ" />

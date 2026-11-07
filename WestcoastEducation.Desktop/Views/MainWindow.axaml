@@ -7,7 +7,7 @@
         x:Class="WestcoastEducation.Desktop.Views.MainWindow"
         x:DataType="vm:MainViewModel"
         Icon="/Assets/avalonia-logo.ico"
-        Title="WestcoastEducation.Desktop">
+        Title="Westcoast Education">
 
     <Grid RowDefinitions="Auto,*,Auto">
         <Menu Grid.Row="0">

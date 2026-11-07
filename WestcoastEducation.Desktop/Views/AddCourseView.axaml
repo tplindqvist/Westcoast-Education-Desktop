@@ -14,7 +14,7 @@
 
             <TextBlock Grid.Row="0" Grid.Column="0" Text="Kursnr" />
             <TextBlock Grid.Row="1" Grid.Column="0" Text="Titel" />
-            <TextBlock Grid.Row="2" Grid.Column="0" Text="Veckor" />
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Antal veckor" />
             <TextBlock Grid.Row="3" Grid.Column="0" Text="Start" />
             <TextBlock Grid.Row="4" Grid.Column="0" Text="Slut" />
             <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding CourseNumber}" />

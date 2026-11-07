@@ -15,7 +15,7 @@ public partial class AddCourseViewModel : ViewModelBase
     [ObservableProperty] 
     public partial string Title { get; set; } = string.Empty;
     [ObservableProperty] 
-    public partial int LengthInWeeks { get; set; }
+    public partial int? LengthInWeeks { get; set; }
     [ObservableProperty] 
     public partial DateTime? StartDate { get; set; }
     [ObservableProperty] 
@@ -57,7 +57,7 @@ public partial class AddCourseViewModel : ViewModelBase
             {
                 CourseNumber = CourseNumber,
                 Title = Title,
-                LengthInWeeks = LengthInWeeks,
+                LengthInWeeks = LengthInWeeks ?? 0,
                 StartDate = StartDate ?? DateTime.Today,
                 EndDate = EndDate ?? DateTime.Today,
                 CourseType = type
@@ -79,7 +79,7 @@ public partial class AddCourseViewModel : ViewModelBase
     {
         CourseNumber = string.Empty;
         Title = string.Empty;
-        LengthInWeeks = 0;
+        LengthInWeeks = null;
         StartDate = null;
         EndDate = null;
         IsRemote = false;

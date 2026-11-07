@@ -10,12 +10,18 @@ namespace WestcoastEducation.Desktop.ViewModels;
 
 public partial class EditCourseViewModel : ViewModelBase
 {
-    [ObservableProperty] public partial string CourseNumber { get; set; } = string.Empty;
-    [ObservableProperty] public partial string Title { get; set; } = string.Empty;
-    [ObservableProperty] public partial int LengthInWeeks { get; set; }
-    [ObservableProperty] public partial DateTime? StartDate { get; set; }
-    [ObservableProperty] public partial DateTime? EndDate { get; set; }
-    [ObservableProperty] public partial bool IsRemote { get; set; }
+    [ObservableProperty] 
+    public partial string CourseNumber { get; set; } = string.Empty;
+    [ObservableProperty] 
+    public partial string Title { get; set; } = string.Empty;
+    [ObservableProperty] 
+    public partial int? LengthInWeeks { get; set; }
+    [ObservableProperty] 
+    public partial DateTime? StartDate { get; set; }
+    [ObservableProperty] 
+    public partial DateTime? EndDate { get; set; }
+    [ObservableProperty] 
+    public partial bool IsRemote { get; set; }
 
     // Sparar den nya kursen via CourseService, aldrig direkt mot RestDB
     private readonly ICourseService _courseService;
@@ -78,7 +84,7 @@ public partial class EditCourseViewModel : ViewModelBase
             {
                 CourseNumber = CourseNumber,
                 Title = Title,
-                LengthInWeeks = LengthInWeeks,
+                LengthInWeeks = LengthInWeeks ?? 0,
                 StartDate = StartDate ?? DateTime.Today,
                 EndDate = EndDate ?? DateTime.Today,
                 CourseType = type
@@ -100,7 +106,7 @@ public partial class EditCourseViewModel : ViewModelBase
         {
             CourseNumber = string.Empty;
             Title = string.Empty;
-            LengthInWeeks = 0;
+            LengthInWeeks = null;
             StartDate = null;
             EndDate = null;
             IsRemote = false;
