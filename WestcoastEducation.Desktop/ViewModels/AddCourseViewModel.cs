@@ -4,6 +4,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using WestcoastEducation.Core.Interfaces;
 using WestcoastEducation.Core.Models;
+using WestcoastEducation.Desktop.Interfaces;
 
 namespace WestcoastEducation.Desktop.ViewModels;
 
@@ -24,11 +25,15 @@ public partial class AddCourseViewModel : ViewModelBase
 
     // Sparar den nya kursen via CourseService, aldrig direkt mot RestDB
     private readonly ICourseService _courseService;
+    
+    // Visar dialogrutor utan ViewModelns vetskap
+    private readonly IDialogService _dialogService;
 
 
-    public AddCourseViewModel(ICourseService courseService)
+    public AddCourseViewModel(ICourseService courseService, IDialogService dialogService)
     {
         _courseService = courseService;
+        _dialogService =  dialogService;
     }
 
     [RelayCommand]
@@ -61,10 +66,12 @@ public partial class AddCourseViewModel : ViewModelBase
             // 3. Spara via CourseService
             await _courseService.AddCourse(course);
             ClearForm();
+            await _dialogService.ShowMessage("Kursen sparades");
         }
         catch (Exception ex)
         {
             Console.WriteLine(ex.Message);
+            await _dialogService.ShowMessage("Något gick fel, kursen sparades inte");
         }
     }
 

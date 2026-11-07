@@ -6,6 +6,7 @@ using WestcoastEducation.Core.Interfaces;
 using WestcoastEducation.Core.Models;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using WestcoastEducation.Desktop.Interfaces;
 
 namespace WestcoastEducation.Desktop.ViewModels;
 
@@ -36,10 +37,14 @@ public partial class AddTeacherViewModel : ViewModelBase
     public partial string NewSubject { get; set; } = string.Empty;
 
     private readonly ITeacherService _teacherService;
+    
+    // Visar dialogrutor utan ViewModelns vetskap
+    private readonly IDialogService _dialogService;
 
-    public AddTeacherViewModel(ITeacherService teacherService)
+    public AddTeacherViewModel(ITeacherService teacherService, IDialogService dialogService)
     {
         _teacherService = teacherService;
+        _dialogService = dialogService;
     }
 
     [RelayCommand]
@@ -61,12 +66,13 @@ public partial class AddTeacherViewModel : ViewModelBase
 
             // Spara via TeacherService
             await _teacherService.AddTeacher(teacher);
-            
             ClearForm();
+            await _dialogService.ShowMessage("Läraren sparades");
         }
         catch (Exception ex)
         {
             Console.WriteLine(ex.Message);
+            await _dialogService.ShowMessage("Något gick fel, läraren sparades inte");
         }
     }
     
