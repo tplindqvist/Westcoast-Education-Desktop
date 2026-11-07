@@ -4,7 +4,7 @@
     <Style Selector="Window">
         <Setter Property="Background" Value="{DynamicResource BackgroundBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
-        <Setter Property="Width" Value="900" />
+        <Setter Property="Width" Value="950" />
         <Setter Property="Height" Value="600" />
     </Style>
 
@@ -56,11 +56,16 @@
         <Setter Property="TextWrapping" Value="Wrap" />
     </Style>
 
-        <!-- Rad med textruta + knapp i formulär -->
+    <!-- Rad med textruta + knapp i formulär -->
     <Style Selector="Grid.inputRow">
         <Setter Property="Margin" Value="0,4" />
     </Style>
     <Style Selector="Grid.inputRow > Button">
+        <Setter Property="Margin" Value="8,0,0,0" />
+    </Style>
+
+    <!-- Listrader -->
+    <Style Selector="Grid.listRow > Button">
         <Setter Property="Margin" Value="8,0,0,0" />
     </Style>
 

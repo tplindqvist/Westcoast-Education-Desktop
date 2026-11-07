@@ -13,28 +13,31 @@
 
         <!-- Rubrik -->
         <Border Classes="listHeader">
-        <Grid ColumnDefinitions="100,250,80,120,120,100,Auto">
-            <TextBlock Grid.Column="0" Text="Kursnr" />
-            <TextBlock Grid.Column="1" Text="Titel" />
-            <TextBlock Grid.Column="2" Text="Veckor" />
-            <TextBlock Grid.Column="3" Text="Start" />
-            <TextBlock Grid.Column="4" Text="Slut" />
-            <TextBlock Grid.Column="5" Text="Typ" />
-        </Grid>
-            </Border>
+            <Grid ColumnDefinitions="100,250,80,120,120,100,Auto,Auto">
+                <TextBlock Grid.Column="0" Text="Kursnr" />
+                <TextBlock Grid.Column="1" Text="Titel" />
+                <TextBlock Grid.Column="2" Text="Veckor" />
+                <TextBlock Grid.Column="3" Text="Start" />
+                <TextBlock Grid.Column="4" Text="Slut" />
+                <TextBlock Grid.Column="5" Text="Typ" />
+            </Grid>
+        </Border>
 
         <!-- En rad per kurs -->
         <ItemsControl ItemsSource="{Binding Courses}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Grid Classes="listRow" ColumnDefinitions="100,250,80,120,120,100,Auto">
+                    <Grid Classes="listRow" ColumnDefinitions="100,250,80,120,120,100,Auto,Auto">
                         <TextBlock Grid.Column="0" Text="{Binding CourseNumber}" />
                         <TextBlock Grid.Column="1" Text="{Binding Title}" />
                         <TextBlock Grid.Column="2" Text="{Binding LengthInWeeks}" />
                         <TextBlock Grid.Column="3" Text="{Binding StartDate, StringFormat={}{0:yyyy-MM-dd}}" />
                         <TextBlock Grid.Column="4" Text="{Binding EndDate, StringFormat={}{0:yyyy-MM-dd}}" />
                         <TextBlock Grid.Column="5" Text="{Binding CourseTypeText}" />
-                        <Button Grid.Column="6" Content="Radera"
+                        <Button Grid.Column="6" Content="Ändra"
+                                Command="{Binding $parent[Window].((vm:MainViewModel)DataContext).GoToEditCourseCommand}"
+                                CommandParameter="{Binding}" />
+                        <Button Grid.Column="7" Content="Radera"
                                 Command="{Binding $parent[UserControl].((vm:CoursesViewModel)DataContext).DeleteCourseCommand}"
                                 CommandParameter="{Binding Id}" />
                     </Grid>
