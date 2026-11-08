@@ -89,7 +89,7 @@
         <Setter Property="TextWrapping" Value="Wrap" />
     </Style>
 
-    <!-- Knapparna till höger, jämte varandra -->
+    <!-- Knapparna centrerade -->
     <Style Selector="StackPanel.dialogButtons">
         <Setter Property="Orientation" Value="Horizontal" />
         <Setter Property="HorizontalAlignment" Value="Center" />

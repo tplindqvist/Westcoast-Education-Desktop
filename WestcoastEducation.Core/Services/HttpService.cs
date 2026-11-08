@@ -6,6 +6,8 @@ using WestcoastEducation.Core.Interfaces;
 
 namespace WestcoastEducation.Core.Services;
 
+// Bygger på exempel från kursen...
+
 public class HttpService<T> : IHttpService<T> where T : class
 {
     private readonly HttpClient _httpClient;

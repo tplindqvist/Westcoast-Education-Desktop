@@ -23,7 +23,7 @@ public partial class EditCourseViewModel : ViewModelBase
     [ObservableProperty] 
     public partial bool IsRemote { get; set; }
 
-    // Sparar den nya kursen via CourseService, aldrig direkt mot RestDB
+
     private readonly ICourseService _courseService;
 
     // Visar dialogrutor utan ViewModelns vetskap
@@ -98,7 +98,7 @@ public partial class EditCourseViewModel : ViewModelBase
         catch (Exception ex)
         {
             Console.WriteLine(ex.Message);
-            await _dialogService.ShowMessage("Något gick fel, kursen sparades inte");
+            await _dialogService.ShowMessage("Något gick fel, kursen sparades inte!");
         }
         
     }

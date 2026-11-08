@@ -25,7 +25,7 @@ public class DialogService : IDialogService
 
     public async Task ShowLoadError() // Samma felmeddelande för alla listor
     {
-        await ShowMessage("Kunde inte hämta listan");
+        await ShowMessage("Kunde inte hämta listan. Kontrollera internetanslutningen och försök igen");
     }
 
     public async Task ShowDeleteError() // Samma felmeddelande när något inte kunde raderas

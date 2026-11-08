@@ -66,12 +66,12 @@ public partial class AddCourseViewModel : ViewModelBase
             // 3. Spara via CourseService
             await _courseService.AddCourse(course);
             ClearForm();
-            await _dialogService.ShowMessage("Kursen sparades");
+            await _dialogService.ShowMessage("Kursen sparades!");
         }
         catch (Exception ex)
         {
             Console.WriteLine(ex.Message);
-            await _dialogService.ShowMessage("Något gick fel, kursen sparades inte");
+            await _dialogService.ShowMessage("Något gick fel, kursen sparades inte!");
         }
     }
 

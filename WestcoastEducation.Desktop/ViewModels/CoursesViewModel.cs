@@ -11,7 +11,8 @@ namespace WestcoastEducation.Desktop.ViewModels;
 
 public partial class CoursesViewModel : ViewModelBase
 {
-    [ObservableProperty] public partial ObservableCollection<Course> Courses { get; set; } = [];
+    [ObservableProperty] 
+    public partial ObservableCollection<Course> Courses { get; set; } = [];
 
 
     // Pratar bara med lagret under (CourseService), aldrig direkt med RestDB
