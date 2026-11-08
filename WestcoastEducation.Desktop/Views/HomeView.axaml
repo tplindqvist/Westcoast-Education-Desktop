@@ -5,9 +5,26 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
 
              x:Class="WestcoastEducation.Desktop.Views.HomeView">
-    <StackPanel>
-        <Border Classes="titleBar">
+    <Grid RowDefinitions="Auto,*,Auto">
+        <Border Grid.Row="0" Classes="titleBar">
             <TextBlock Text="Hem" />
         </Border>
-    </StackPanel>
+
+        <StackPanel Grid.Row="1" Classes="home">
+            <TextBlock Classes="heading" Text="Välkommen till Westcoast Education" />
+            <TextBlock Text="Administration av kurser, studenter och lärare" />
+            
+            <TextBlock Text="Kom igång genom att välja något i menyn ovan." />
+
+            <Border Classes="tipBox">
+                <StackPanel>
+                    <TextBlock Classes="tipTitle" Text="Visste du att...?" />
+                    <TextBlock Text="Du kan ändra en lärares kompetensområden genom att klicka på ändra i lärarlistan." />
+                </StackPanel>
+            </Border>
+
+        </StackPanel>
+            <TextBlock Grid.Row="2" Classes="footer" Text="Version 1.0" />
+
+    </Grid>
 </UserControl>

@@ -101,4 +101,34 @@
         <Setter Property="HorizontalContentAlignment" Value="Center" />
     </Style>
 
+    <!-- Hemsidan -->
+    <Style Selector="StackPanel.home">
+        <Setter Property="Spacing" Value="12" />
+    </Style>
+
+    <Style Selector="TextBlock.heading">
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="FontWeight" Value="Bold" />
+    </Style>
+
+    <!-- Vit ruta med grå kant -->
+    <Style Selector="Border.tipBox">
+        <Setter Property="Background" Value="{DynamicResource InputBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ShadowBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Padding" Value="10" />
+    </Style>
+
+    <Style Selector="Border.tipBox TextBlock">
+        <Setter Property="TextWrapping" Value="Wrap" />
+    </Style>
+
+    <Style Selector="TextBlock.tipTitle">
+        <Setter Property="FontWeight" Value="Bold" />
+    </Style>
+
+    <Style Selector="TextBlock.footer">
+        <Setter Property="FontSize" Value="11" />
+    </Style>
+
 </Styles>
