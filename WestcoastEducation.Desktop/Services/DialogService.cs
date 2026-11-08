@@ -22,7 +22,17 @@ public class DialogService : IDialogService
         var dialog = new DialogWindow(message, false);
         await dialog.ShowDialog<bool>(GetMainWindow());
     }
-    
+
+    public async Task ShowLoadError() // Samma felmeddelande för alla listor
+    {
+        await ShowMessage("Kunde inte hämta listan");
+    }
+
+    public async Task ShowDeleteError() // Samma felmeddelande när något inte kunde raderas
+    {
+        await ShowMessage("Kunde inte radera");
+    }
+
     // Hämtar huvudfönstret, rutan ska ligga ovanpå
     private Window GetMainWindow()
     {

@@ -45,6 +45,7 @@ public partial class CoursesViewModel : ViewModelBase
         catch (Exception ex)
         {
             Console.WriteLine(ex.Message);
+            await _dialogService.ShowLoadError();
         }
         finally
         {
@@ -72,7 +73,8 @@ public partial class CoursesViewModel : ViewModelBase
         catch (Exception ex)
         {
             Console.WriteLine(ex.Message);
-            await _dialogService.ShowMessage("Kursen kunde inte raderas");
+            await _dialogService.ShowDeleteError();
+            
         }
     }
 }
