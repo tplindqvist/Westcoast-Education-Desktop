@@ -45,9 +45,8 @@ public class HttpService<T> : IHttpService<T> where T : class
     {
         // 1. Skicka förfrågan och vänta på svar
         var response = await _httpClient.GetAsync(resource);
-        // 2. Gick det inte, lämna tillbaka en tom lista
-        if (!response.IsSuccessStatusCode)
-            return [];
+        // 2. Gick det inte, kasta ett fel
+        response.EnsureSuccessStatusCode();
 
         // 3. Läs svaret som text
         var result = await response.Content.ReadAsStringAsync();
